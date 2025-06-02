@@ -39,7 +39,7 @@ async refresh(@Req() req, @Res() res) {
   }
 }
 
-
+  @UseGuards(JwtAuthGuard)
   @Post('logout')
   logout(@Req() req, @Res() res) {
     return this.authService.logout(req.user?.userId, res);
